@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+</head>
+
+<body>
+  <section class="container">
+    <div class="primary_container">
+      <h3>Your Result</h3>
+      <div class="circle">
+        <div class="innerCircle">
+          <h1>76</h1>
+          <h5>of 100</h5>
+        </div>
+      </div>
+
+      <h2>Great</h2>
+      <p>You scored higher than 65% of the people who have taken these tests.</p>
+
+    </div>
+
+    <div class="secondary_container">
+      <h3>Summary</h3>
+      <div id="result"></div>
+      <div class="continue">
+        <h5>Continue</h5>
+      </div>
+    </div>
+  </section>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Aalia Amin</a>.
+  </div>
+
+  <script>
+    const results = [
+      {
+        "category": "Reaction",
+        "score": 80,
+        "icon": "./assets/images/icon-reaction.svg",
+        "bgColor": "hsla(0, 100%, 67%, 0.1)",
+        "color": "hsl(0, 100%, 67%)"
+      },
+      {
+        "category": "Memory",
+        "score": 92,
+        "icon": "./assets/images/icon-memory.svg",
+        "bgColor": "hsla(39, 100%, 56%, 0.1)",
+        "color": "hsl(39, 100%, 56%)"
+      },
+      {
+        "category": "Verbal",
+        "score": 61,
+        "icon": "./assets/images/icon-verbal.svg",
+        "bgColor": "hsla(166, 100%, 37%, 0.1)",
+        "color": "hsl(166, 100%, 37%)"
+      },
+      {
+        "category": "Visual",
+        "score": 72,
+        "icon": "./assets/images/icon-visual.svg",
+        "bgColor": "hsla(234, 85%, 45%, 0.1)",
+        "color": "hsl(234, 85%, 45%)"
+      }
+    ]
+
+    showResults = () => {
+      let html = '';
+      results.map((item) => {
+        html += `<div class="items" style="color:${item.color};background-color:${item.bgColor};">
+          <div class="item"><img src=${item.icon}>
+            <h5>${item.category}</h5>
+            </div>
+            <h5><span style="color: hsl(224, 30%, 27%);">${item.score}</span><span style="color: hsla(234, 85%, 45%, 0.4);"> /100</span></h5></div>`
+      })
+      document.getElementById("result").innerHTML = html
+    }
+    showResults();
+  </script>
+</body>
+
+</html>
